@@ -1,0 +1,352 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ElimuSmart Learning Hub & Teacher Studio — Version 5</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f7ff;color:#10234b;font-family:system-ui,Arial,sans-serif}
+header{padding:22px 16px;background:linear-gradient(135deg,#0759d8,#1388f5);color:#fff;border-radius:0 0 22px 22px}
+main{max-width:900px;margin:12px auto;padding:0 12px}.panel{background:white;border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 5px 20px #10234b0d}
+h2{margin:0 0 10px;font-size:1.15rem}.muted{color:#66738a;font-size:.9rem;line-height:1.5}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}button{border:0;border-radius:12px;padding:13px 10px;font:inherit;font-weight:750;background:#0759d8;color:#fff;cursor:pointer;width:100%;margin:5px 0}
+button small{display:block;font-weight:400;margin-top:4px}button.active{outline:3px solid #a7ffca}.view{display:none}.view.active{display:block}
+label{display:block;font-weight:700;font-size:.9rem;margin:10px 0 5px}select,textarea{width:100%;padding:11px;border:1px solid #d8e1f0;border-radius:10px;font:inherit;background:#fff;color:#10234b}
+.row{display:grid;grid-template-columns:1fr;gap:8px}.notice{background:#fff7df;border-radius:12px;padding:12px;color:#72500a;font-size:.88rem;line-height:1.5}
+iframe{width:100%;height:82vh;min-height:650px;border:0;border-radius:12px;background:#fff}#teacherOutput{white-space:pre-wrap;line-height:1.5;overflow-wrap:anywhere;border:1px solid #d8e1f0;padding:12px;border-radius:12px;min-height:90px}
+@media(min-width:650px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.row{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<header><div style="font-size:1.55rem;font-weight:850">📘 Elimu<span style="color:#a7ffca">Smart</span></div><div>Learn • Practise • Excel</div><h2 style="margin-top:16px">Learning and Assessment Hub</h2><p>Self-tests for learners and assessment-planning tools for teachers.</p></header>
+<main>
+<section class="panel"><h2>Choose a workspace</h2><div class="tiles">
+<button class="active" data-view="learner">📝 Learner Examination Centre<small>Practice tests, results and revision advice</small></button>
+<button data-view="teacher">👩‍🏫 Teacher Studio<small>Exams, written questions, marking schemes and schemes of work</small></button>
+<button data-view="roadmap">🎥 Other Learning Features<small>Videos, experiments and Ask & Answer roadmap</small></button>
+</div></section>
+<section class="panel view active" id="learner"><h2>Learner Examination Centre</h2><p class="muted">Includes the current prototype question bank. Written-response testing and automatic marking of essays are not yet implemented in this learner module; the teacher tool can draft open-ended questions.</p><iframe title="Learner Examination Centre" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;meta name=&quot;theme-color&quot; content=&quot;#0759d8&quot;&gt;
+&lt;title&gt;ElimuSmart — Learner Examination Centre&lt;/title&gt;
+&lt;style&gt;
+:root{--blue:#0759d8;--navy:#10234b;--green:#11985b;--bg:#f3f7ff;--muted:#66738a;--line:#d8e1f0}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--navy)}
+header{background:linear-gradient(135deg,#0759d8,#1388f5);color:white;padding:22px 18px 28px;border-radius:0 0 24px 24px}
+.brand{font-size:1.55rem;font-weight:850}.brand span{color:#a7ffca}.tagline{font-size:.92rem;opacity:.95}
+main{max-width:820px;margin:-12px auto 28px;padding:0 14px}.panel{background:#fff;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 5px 20px #10234b0d}
+h2{font-size:1.15rem;margin:0 0 10px}h3{font-size:1rem;margin:14px 0 8px}
+label{display:block;font-size:.9rem;font-weight:700;margin:11px 0 5px}select,input,textarea{width:100%;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:11px;padding:12px;font:inherit}
+button{width:100%;border:0;border-radius:12px;padding:13px 12px;font:inherit;font-weight:750;background:var(--blue);color:white;cursor:pointer;margin-top:11px}
+button.secondary{background:#eaf1ff;color:var(--blue);border:1px solid #cbdcff}button:disabled{opacity:.55}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile{background:#f3f7ff;border-radius:14px;padding:13px}.tile strong{display:block}.tile small{color:var(--muted)}
+.muted{color:var(--muted);font-size:.9rem;line-height:1.5}.pill{display:inline-block;border-radius:99px;padding:5px 10px;background:#e9f1ff;color:var(--blue);font-size:.8rem;font-weight:750}
+.notice{padding:12px;border-radius:12px;background:#fff7df;color:#72500a;font-size:.88rem;line-height:1.5}.good{background:#eef8f2;color:#12653d}.question{font-size:1.04rem;line-height:1.45;font-weight:750;margin:14px 0}
+.option{display:flex;gap:10px;align-items:flex-start;border:1px solid #dce5f4;border-radius:12px;padding:12px;margin:8px 0;cursor:pointer}.option input{width:auto;margin-top:5px}
+.progress{height:8px;background:#e6edf8;border-radius:99px;overflow:hidden;margin:10px 0}.progress div{height:100%;background:var(--green);width:0%;transition:width .2s}
+[hidden]{display:none!important}.row{display:grid;grid-template-columns:1fr;gap:10px}.stat{padding:12px;background:#f3f7ff;border-radius:12px}.stat strong{font-size:1.2rem;display:block}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:12px 18px 28px}
+@media(min-width:620px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.row.two{grid-template-columns:1fr 1fr}.row.three{grid-template-columns:1fr 1fr 1fr}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;&lt;div class=&quot;brand&quot;&gt;📘 Elimu&lt;span&gt;Smart&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;tagline&quot;&gt;Learn • Practise • Excel&lt;/div&gt;
+&lt;p style=&quot;margin:17px 0 0;font-size:1.13rem;font-weight:750&quot;&gt;Learner Examination Centre&lt;/p&gt;&lt;p style=&quot;margin:5px 0 0;opacity:.93&quot;&gt;Prepare, test yourself, understand mistakes, and improve.&lt;/p&gt;&lt;/header&gt;
+&lt;main&gt;
+&lt;section class=&quot;panel&quot; id=&quot;setup&quot;&gt;
+&lt;h2&gt;🎯 Create your self-test&lt;/h2&gt;
+&lt;p class=&quot;muted&quot;&gt;This centre is for learners as well as teachers. Choose your level and build a practice test for yourself.&lt;/p&gt;
+&lt;div class=&quot;row two&quot;&gt;
+&lt;div&gt;&lt;label for=&quot;grade&quot;&gt;Grade / level&lt;/label&gt;&lt;select id=&quot;grade&quot;&gt;
+&lt;option&gt;Grade 1&lt;/option&gt;&lt;option&gt;Grade 2&lt;/option&gt;&lt;option&gt;Grade 3&lt;/option&gt;&lt;option&gt;Grade 4&lt;/option&gt;&lt;option&gt;Grade 5&lt;/option&gt;&lt;option&gt;Grade 6&lt;/option&gt;&lt;option&gt;Grade 7&lt;/option&gt;&lt;option&gt;Grade 8&lt;/option&gt;&lt;option&gt;Grade 9&lt;/option&gt;&lt;option&gt;Grade 10&lt;/option&gt;&lt;option&gt;Grade 11&lt;/option&gt;&lt;option&gt;Grade 12&lt;/option&gt;
+&lt;/select&gt;&lt;/div&gt;
+&lt;div id=&quot;pathwayWrap&quot; hidden&gt;&lt;label for=&quot;pathway&quot;&gt;Senior school pathway&lt;/label&gt;&lt;select id=&quot;pathway&quot;&gt;&lt;option&gt;STEM&lt;/option&gt;&lt;option&gt;Social Sciences&lt;/option&gt;&lt;option&gt;Arts and Sports Science&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row two&quot;&gt;
+&lt;div&gt;&lt;label for=&quot;subject&quot;&gt;Subject&lt;/label&gt;&lt;select id=&quot;subject&quot;&gt;&lt;/select&gt;&lt;/div&gt;
+&lt;div&gt;&lt;label for=&quot;topic&quot;&gt;Topic&lt;/label&gt;&lt;select id=&quot;topic&quot;&gt;&lt;option value=&quot;all&quot;&gt;Mixed topics / whole subject&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row three&quot;&gt;
+&lt;div&gt;&lt;label for=&quot;mode&quot;&gt;Examination type&lt;/label&gt;&lt;select id=&quot;mode&quot;&gt;&lt;option value=&quot;prepared&quot;&gt;Prepared question bank&lt;/option&gt;&lt;option value=&quot;generated&quot;&gt;Build a new practice set&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+&lt;div&gt;&lt;label for=&quot;difficulty&quot;&gt;Difficulty&lt;/label&gt;&lt;select id=&quot;difficulty&quot;&gt;&lt;option&gt;Beginner&lt;/option&gt;&lt;option selected&gt;Intermediate&lt;/option&gt;&lt;option&gt;Advanced&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+&lt;div&gt;&lt;label for=&quot;count&quot;&gt;Number of questions&lt;/label&gt;&lt;select id=&quot;count&quot;&gt;&lt;option&gt;5&lt;/option&gt;&lt;option selected&gt;10&lt;/option&gt;&lt;option&gt;15&lt;/option&gt;&lt;option&gt;20&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row two&quot;&gt;
+&lt;div&gt;&lt;label for=&quot;timed&quot;&gt;Time limit&lt;/label&gt;&lt;select id=&quot;timed&quot;&gt;&lt;option value=&quot;0&quot;&gt;Untimed practice&lt;/option&gt;&lt;option value=&quot;5&quot;&gt;5 minutes&lt;/option&gt;&lt;option value=&quot;10&quot;&gt;10 minutes&lt;/option&gt;&lt;option value=&quot;20&quot;&gt;20 minutes&lt;/option&gt;&lt;option value=&quot;30&quot;&gt;30 minutes&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+&lt;div&gt;&lt;label for=&quot;feedbackMode&quot;&gt;Answer explanations&lt;/label&gt;&lt;select id=&quot;feedbackMode&quot;&gt;&lt;option value=&quot;after&quot;&gt;Show after each answer&lt;/option&gt;&lt;option value=&quot;end&quot;&gt;Show after submitting&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;button id=&quot;startBtn&quot;&gt;Start examination&lt;/button&gt;
+&lt;div class=&quot;notice&quot; style=&quot;margin-top:12px&quot;&gt;Curriculum note: this demo contains a small sample bank, not a complete or officially verified CBE question bank. The “Build a new practice set” option creates variations from local sample templates; it is not connected to an AI service.&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;panel&quot;&gt;
+&lt;h2&gt;🧭 How it works&lt;/h2&gt;&lt;div class=&quot;tiles&quot;&gt;
+&lt;div class=&quot;tile&quot;&gt;📝 &lt;strong&gt;Choose a test&lt;/strong&gt;&lt;small&gt;Grade, subject, topic and difficulty&lt;/small&gt;&lt;/div&gt;
+&lt;div class=&quot;tile&quot;&gt;⏱️ &lt;strong&gt;Practise under time&lt;/strong&gt;&lt;small&gt;Optional countdown&lt;/small&gt;&lt;/div&gt;
+&lt;div class=&quot;tile&quot;&gt;✅ &lt;strong&gt;Get marked&lt;/strong&gt;&lt;small&gt;Instant marking for multiple choice&lt;/small&gt;&lt;/div&gt;
+&lt;div class=&quot;tile&quot;&gt;📊 &lt;strong&gt;Understand results&lt;/strong&gt;&lt;small&gt;Score, answers and explanations&lt;/small&gt;&lt;/div&gt;
+&lt;div class=&quot;tile&quot;&gt;🎯 &lt;strong&gt;Find weak topics&lt;/strong&gt;&lt;small&gt;Get revision recommendations&lt;/small&gt;&lt;/div&gt;
+&lt;div class=&quot;tile&quot;&gt;🔁 &lt;strong&gt;Try again&lt;/strong&gt;&lt;small&gt;Practise to measure improvement&lt;/small&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/section&gt;
+
+&lt;section class=&quot;panel&quot; id=&quot;exam&quot; hidden&gt;
+&lt;div class=&quot;row two&quot;&gt;&lt;div&gt;&lt;span class=&quot;pill&quot; id=&quot;examLabel&quot;&gt;Practice test&lt;/span&gt;&lt;p id=&quot;timerText&quot; class=&quot;muted&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;div style=&quot;text-align:right&quot;&gt;&lt;strong id=&quot;counter&quot;&gt;Question 1&lt;/strong&gt;&lt;p id=&quot;scoreLive&quot; class=&quot;muted&quot;&gt;Answered: 0&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;progress&quot;&gt;&lt;div id=&quot;bar&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div id=&quot;questionText&quot; class=&quot;question&quot;&gt;&lt;/div&gt;&lt;div id=&quot;options&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;feedback&quot; class=&quot;notice good&quot; hidden&gt;&lt;/div&gt;
+&lt;button id=&quot;checkBtn&quot;&gt;Check answer&lt;/button&gt;&lt;button id=&quot;nextBtn&quot; class=&quot;secondary&quot; hidden&gt;Next question&lt;/button&gt;
+&lt;button id=&quot;submitBtn&quot; class=&quot;secondary&quot;&gt;Submit examination&lt;/button&gt;&lt;button id=&quot;exitBtn&quot; class=&quot;secondary&quot;&gt;Exit to setup&lt;/button&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;panel&quot; id=&quot;results&quot; hidden&gt;
+&lt;h2&gt;📈 Your examination report&lt;/h2&gt;&lt;p id=&quot;finalLine&quot; style=&quot;font-size:1.2rem;font-weight:800&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;row three&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;strong id=&quot;statCorrect&quot;&gt;0&lt;/strong&gt;&lt;span class=&quot;muted&quot;&gt;Correct&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;stat&quot;&gt;&lt;strong id=&quot;statWrong&quot;&gt;0&lt;/strong&gt;&lt;span class=&quot;muted&quot;&gt;Incorrect / unanswered&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;stat&quot;&gt;&lt;strong id=&quot;statPct&quot;&gt;0%&lt;/strong&gt;&lt;span class=&quot;muted&quot;&gt;Score&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3&gt;Review your answers&lt;/h3&gt;&lt;div id=&quot;review&quot;&gt;&lt;/div&gt;&lt;h3&gt;What to revise next&lt;/h3&gt;&lt;p id=&quot;advice&quot; class=&quot;muted&quot;&gt;&lt;/p&gt;
+&lt;button id=&quot;retryBtn&quot;&gt;Create another test&lt;/button&gt;&lt;button id=&quot;setupBtn&quot; class=&quot;secondary&quot;&gt;Change grade or subject&lt;/button&gt;
+&lt;p class=&quot;muted&quot;&gt;Results are stored only in this browser on this device. They are not an official school assessment.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;panel&quot; id=&quot;history&quot;&gt;
+&lt;h2&gt;📚 Recent practice results&lt;/h2&gt;&lt;div id=&quot;historyList&quot; class=&quot;muted&quot;&gt;Complete a test to see results here.&lt;/div&gt;&lt;button id=&quot;clearHistory&quot; class=&quot;secondary&quot;&gt;Clear local practice history&lt;/button&gt;
+&lt;/section&gt;
+&lt;section class=&quot;panel&quot;&gt;&lt;h2&gt;🔐 Accounts and premium features&lt;/h2&gt;&lt;p class=&quot;muted&quot;&gt;A future secure account can sync progress across devices. Premium options could include larger question banks, detailed reports, AI-generated practice tests, and downloadable revision packs.&lt;/p&gt;&lt;div class=&quot;notice&quot;&gt;This demo does not create secure online accounts, connect to AI, or charge subscriptions. Never enter passwords or payment details into this demo. Real subscriptions require a secure backend and a verified payment provider.&lt;/div&gt;&lt;/section&gt;
+&lt;/main&gt;&lt;footer&gt;ElimuSmart demo • Better learning, brighter future 🇰🇪&lt;/footer&gt;
+&lt;script&gt;
+const $=id=&gt;document.getElementById(id);
+const subjectMap={
+&quot;Grade 1&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Environmental Activities&quot;],
+&quot;Grade 2&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Environmental Activities&quot;],
+&quot;Grade 3&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Environmental Activities&quot;],
+&quot;Grade 4&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Science and Technology&quot;,&quot;Social Studies&quot;,&quot;Agriculture&quot;],
+&quot;Grade 5&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Science and Technology&quot;,&quot;Social Studies&quot;,&quot;Agriculture&quot;],
+&quot;Grade 6&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Science and Technology&quot;,&quot;Social Studies&quot;,&quot;Agriculture&quot;],
+&quot;Grade 7&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Integrated Science&quot;,&quot;Social Studies&quot;,&quot;Creative Arts&quot;,&quot;Agriculture&quot;,&quot;Religious Education&quot;],
+&quot;Grade 8&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Integrated Science&quot;,&quot;Social Studies&quot;,&quot;Creative Arts&quot;,&quot;Agriculture&quot;,&quot;Religious Education&quot;],
+&quot;Grade 9&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Integrated Science&quot;,&quot;Social Studies&quot;,&quot;Creative Arts&quot;,&quot;Agriculture&quot;,&quot;Religious Education&quot;],
+&quot;Grade 10&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Biology&quot;,&quot;Chemistry&quot;,&quot;Physics&quot;,&quot;Computer Studies&quot;,&quot;Business Studies&quot;,&quot;Geography&quot;,&quot;History and Citizenship&quot;,&quot;Literature in English&quot;,&quot;French&quot;,&quot;Fine Arts&quot;,&quot;Music and Dance&quot;,&quot;Sports and Recreation&quot;],
+&quot;Grade 11&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Biology&quot;,&quot;Chemistry&quot;,&quot;Physics&quot;,&quot;Computer Studies&quot;,&quot;Business Studies&quot;,&quot;Geography&quot;,&quot;History and Citizenship&quot;,&quot;Literature in English&quot;,&quot;French&quot;,&quot;Fine Arts&quot;,&quot;Music and Dance&quot;,&quot;Sports and Recreation&quot;],
+&quot;Grade 12&quot;:[&quot;Mathematics&quot;,&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Biology&quot;,&quot;Chemistry&quot;,&quot;Physics&quot;,&quot;Computer Studies&quot;,&quot;Business Studies&quot;,&quot;Geography&quot;,&quot;History and Citizenship&quot;,&quot;Literature in English&quot;,&quot;French&quot;,&quot;Fine Arts&quot;,&quot;Music and Dance&quot;,&quot;Sports and Recreation&quot;]
+};
+const pathwaySubjects={
+&quot;STEM&quot;:[&quot;Mathematics&quot;,&quot;Biology&quot;,&quot;Chemistry&quot;,&quot;Physics&quot;,&quot;Computer Studies&quot;],
+&quot;Social Sciences&quot;:[&quot;English&quot;,&quot;Kiswahili&quot;,&quot;Business Studies&quot;,&quot;Geography&quot;,&quot;History and Citizenship&quot;,&quot;Literature in English&quot;,&quot;French&quot;],
+&quot;Arts and Sports Science&quot;:[&quot;Fine Arts&quot;,&quot;Music and Dance&quot;,&quot;Sports and Recreation&quot;,&quot;English&quot;,&quot;Kiswahili&quot;]
+};
+const topics={
+&quot;Mathematics&quot;:[&quot;Number operations&quot;,&quot;Fractions&quot;,&quot;Decimals&quot;,&quot;Algebra&quot;,&quot;Geometry&quot;,&quot;Measurement&quot;,&quot;Ratio and proportion&quot;,&quot;Statistics&quot;,&quot;Functions&quot;,&quot;Quadratic equations&quot;,&quot;Differentiation&quot;],
+&quot;English&quot;:[&quot;Grammar&quot;,&quot;Vocabulary&quot;,&quot;Reading comprehension&quot;,&quot;Writing&quot;,&quot;Punctuation&quot;,&quot;Literature&quot;],
+&quot;Kiswahili&quot;:[&quot;Sarufi&quot;,&quot;Msamiati&quot;,&quot;Ufahamu&quot;,&quot;Insha&quot;,&quot;Fasihi&quot;],
+&quot;Integrated Science&quot;:[&quot;Plants&quot;,&quot;Human body&quot;,&quot;Matter&quot;,&quot;Forces and energy&quot;,&quot;Environment&quot;,&quot;Health and hygiene&quot;],
+&quot;Science and Technology&quot;:[&quot;Plants&quot;,&quot;Matter&quot;,&quot;Forces and energy&quot;,&quot;Environment&quot;],
+&quot;Social Studies&quot;:[&quot;Maps and direction&quot;,&quot;Kenya and citizenship&quot;,&quot;Environment&quot;,&quot;History&quot;],
+&quot;Agriculture&quot;:[&quot;Plant growth&quot;,&quot;Soil&quot;,&quot;Crop production&quot;,&quot;Livestock&quot;],
+&quot;Religious Education&quot;:[&quot;Values&quot;,&quot;Worship&quot;,&quot;Relationships&quot;,&quot;Peaceful conflict resolution&quot;],
+&quot;Biology&quot;:[&quot;Cells&quot;,&quot;Nutrition&quot;,&quot;Transport&quot;,&quot;Ecology&quot;,&quot;Reproduction&quot;],
+&quot;Chemistry&quot;:[&quot;Matter&quot;,&quot;Elements and compounds&quot;,&quot;Acids and bases&quot;,&quot;Chemical reactions&quot;],
+&quot;Physics&quot;:[&quot;Measurement&quot;,&quot;Forces&quot;,&quot;Energy&quot;,&quot;Electricity&quot;,&quot;Waves&quot;],
+&quot;Computer Studies&quot;:[&quot;Computer systems&quot;,&quot;Data&quot;,&quot;Algorithms&quot;,&quot;Digital safety&quot;],
+&quot;Business Studies&quot;:[&quot;Entrepreneurship&quot;,&quot;Business transactions&quot;,&quot;Markets&quot;,&quot;Record keeping&quot;],
+&quot;Geography&quot;:[&quot;Maps&quot;,&quot;Weather and climate&quot;,&quot;Landforms&quot;,&quot;Population&quot;],
+&quot;History and Citizenship&quot;:[&quot;Citizenship&quot;,&quot;Governance&quot;,&quot;Historical sources&quot;,&quot;National identity&quot;],
+&quot;Literature in English&quot;:[&quot;Poetry&quot;,&quot;Drama&quot;,&quot;Prose&quot;,&quot;Literary devices&quot;],
+&quot;French&quot;:[&quot;Vocabulary&quot;,&quot;Grammar&quot;,&quot;Reading&quot;,&quot;Conversation&quot;],
+&quot;Fine Arts&quot;:[&quot;Elements of art&quot;,&quot;Drawing&quot;,&quot;Colour&quot;,&quot;Composition&quot;],
+&quot;Music and Dance&quot;:[&quot;Rhythm&quot;,&quot;Melody&quot;,&quot;Performance&quot;,&quot;Dance&quot;],
+&quot;Sports and Recreation&quot;:[&quot;Fitness&quot;,&quot;Skills&quot;,&quot;Safety&quot;,&quot;Teamwork&quot;],
+&quot;Environmental Activities&quot;:[&quot;Weather&quot;,&quot;Plants and animals&quot;,&quot;Home and school&quot;,&quot;Clean environment&quot;]
+};
+const bank={
+&quot;Mathematics&quot;:[
+{topic:&quot;Fractions&quot;,q:&quot;What is 1/2 + 1/4?&quot;,o:[&quot;1/6&quot;,&quot;2/6&quot;,&quot;3/4&quot;,&quot;1/4&quot;],a:2,e:&quot;Convert 1/2 to 2/4, then 2/4 + 1/4 = 3/4.&quot;,level:&quot;Intermediate&quot;},
+{topic:&quot;Number operations&quot;,q:&quot;What is 7 + 5?&quot;,o:[&quot;10&quot;,&quot;11&quot;,&quot;12&quot;,&quot;13&quot;],a:2,e:&quot;7 + 5 = 12.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Geometry&quot;,q:&quot;A triangle has how many sides?&quot;,o:[&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;],a:1,e:&quot;A triangle has three sides.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Algebra&quot;,q:&quot;Solve 2x + 3 = 11.&quot;,o:[&quot;x = 3&quot;,&quot;x = 4&quot;,&quot;x = 5&quot;,&quot;x = 7&quot;],a:1,e:&quot;Subtract 3: 2x = 8. Divide by 2: x = 4.&quot;,level:&quot;Intermediate&quot;},
+{topic:&quot;Quadratic equations&quot;,q:&quot;Which are the roots of x² − 5x + 6 = 0?&quot;,o:[&quot;1 and 6&quot;,&quot;2 and 3&quot;,&quot;−2 and −3&quot;,&quot;−1 and −6&quot;],a:1,e:&quot;Factor: (x − 2)(x − 3) = 0, so x = 2 or 3.&quot;,level:&quot;Advanced&quot;},
+{topic:&quot;Differentiation&quot;,q:&quot;If y = x², what is dy/dx?&quot;,o:[&quot;x&quot;,&quot;2x&quot;,&quot;x²&quot;,&quot;2&quot;],a:1,e:&quot;Using the power rule, d(x²)/dx = 2x.&quot;,level:&quot;Advanced&quot;},
+{topic:&quot;Ratio and proportion&quot;,q:&quot;A ratio is 2:3. If the first quantity is 10, what is the second?&quot;,o:[&quot;12&quot;,&quot;15&quot;,&quot;20&quot;,&quot;25&quot;],a:1,e:&quot;The scale factor is 10 ÷ 2 = 5; the second quantity is 3 × 5 = 15.&quot;,level:&quot;Intermediate&quot;}
+],
+&quot;English&quot;:[
+{topic:&quot;Grammar&quot;,q:&quot;Which word is a noun?&quot;,o:[&quot;Quickly&quot;,&quot;Happiness&quot;,&quot;Run&quot;,&quot;Blue&quot;],a:1,e:&quot;Happiness names a state or feeling, so it is a noun.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Punctuation&quot;,q:&quot;Which punctuation mark normally ends a direct question?&quot;,o:[&quot;Full stop&quot;,&quot;Comma&quot;,&quot;Question mark&quot;,&quot;Colon&quot;],a:2,e:&quot;A direct question normally ends with a question mark.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Vocabulary&quot;,q:&quot;Choose the closest opposite of &#x27;scarce&#x27;.&quot;,o:[&quot;Rare&quot;,&quot;Plentiful&quot;,&quot;Small&quot;,&quot;Costly&quot;],a:1,e:&quot;Plentiful means available in large amounts, the opposite of scarce.&quot;,level:&quot;Intermediate&quot;},
+{topic:&quot;Reading comprehension&quot;,q:&quot;A text&#x27;s main idea is best described as…&quot;,o:[&quot;Every detail&quot;,&quot;The central point&quot;,&quot;The title only&quot;,&quot;The final word&quot;],a:1,e:&quot;The main idea is the central point the text communicates.&quot;,level:&quot;Intermediate&quot;}
+],
+&quot;Kiswahili&quot;:[
+{topic:&quot;Sarufi&quot;,q:&quot;Wingi wa &#x27;mtoto&#x27; ni upi?&quot;,o:[&quot;Mitoto&quot;,&quot;Watoto&quot;,&quot;Vitoto&quot;,&quot;Atoto&quot;],a:1,e:&quot;Wingi wa mtoto ni watoto.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Sarufi&quot;,q:&quot;Kinyume cha &#x27;refu&#x27; ni nini?&quot;,o:[&quot;Kubwa&quot;,&quot;Fupi&quot;,&quot;Ndefu&quot;,&quot;Pana&quot;],a:1,e:&quot;Kinyume cha refu ni fupi.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Msamiati&quot;,q:&quot;Neno lenye maana iliyo kinyume cha &#x27;furaha&#x27; ni…&quot;,o:[&quot;Shangwe&quot;,&quot;Huzuni&quot;,&quot;Tabasamu&quot;,&quot;Amani&quot;],a:1,e:&quot;Huzuni ni kinyume cha furaha.&quot;,level:&quot;Intermediate&quot;}
+],
+&quot;Integrated Science&quot;:[
+{topic:&quot;Plants&quot;,q:&quot;Which part of a plant absorbs most water from the soil?&quot;,o:[&quot;Flower&quot;,&quot;Leaf&quot;,&quot;Root&quot;,&quot;Fruit&quot;],a:2,e:&quot;Roots absorb water and mineral salts from the soil.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Matter&quot;,q:&quot;Which state of matter generally has a fixed shape?&quot;,o:[&quot;Gas&quot;,&quot;Liquid&quot;,&quot;Solid&quot;,&quot;Vapour&quot;],a:2,e:&quot;A solid generally has a fixed shape and volume.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Forces and energy&quot;,q:&quot;Which instrument is commonly used to measure temperature?&quot;,o:[&quot;Thermometer&quot;,&quot;Ruler&quot;,&quot;Balance&quot;,&quot;Stopwatch&quot;],a:0,e:&quot;A thermometer measures temperature.&quot;,level:&quot;Intermediate&quot;},
+{topic:&quot;Health and hygiene&quot;,q:&quot;Which action helps reduce the spread of many germs?&quot;,o:[&quot;Sharing dirty towels&quot;,&quot;Washing hands with soap&quot;,&quot;Leaving food uncovered&quot;,&quot;Drinking unsafe water&quot;],a:1,e:&quot;Handwashing with soap helps remove germs.&quot;,level:&quot;Beginner&quot;}
+],
+&quot;Biology&quot;:[
+{topic:&quot;Cells&quot;,q:&quot;Which structure controls many activities of a typical plant or animal cell?&quot;,o:[&quot;Nucleus&quot;,&quot;Cell wall only&quot;,&quot;Vacuole only&quot;,&quot;Cytoplasm only&quot;],a:0,e:&quot;The nucleus contains genetic material and helps control cell activities.&quot;,level:&quot;Intermediate&quot;},
+{topic:&quot;Ecology&quot;,q:&quot;Green plants are called producers because they…&quot;,o:[&quot;Eat animals&quot;,&quot;Make organic food using light&quot;,&quot;Break down rocks&quot;,&quot;Only absorb oxygen&quot;],a:1,e:&quot;Green plants make food through photosynthesis.&quot;,level:&quot;Intermediate&quot;},
+{topic:&quot;Nutrition&quot;,q:&quot;Which nutrient is the body&#x27;s main immediate energy source?&quot;,o:[&quot;Carbohydrate&quot;,&quot;Vitamin C&quot;,&quot;Water&quot;,&quot;Mineral salts&quot;],a:0,e:&quot;Carbohydrates are a major energy source.&quot;,level:&quot;Beginner&quot;}
+],
+&quot;Chemistry&quot;:[
+{topic:&quot;Matter&quot;,q:&quot;Which of these is a chemical element?&quot;,o:[&quot;Water&quot;,&quot;Sodium&quot;,&quot;Air&quot;,&quot;Salt solution&quot;],a:1,e:&quot;Sodium is an element made of one type of atom.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Acids and bases&quot;,q:&quot;A solution with pH 2 is generally…&quot;,o:[&quot;Strongly acidic&quot;,&quot;Neutral&quot;,&quot;Alkaline&quot;,&quot;Pure water&quot;],a:0,e:&quot;A pH below 7 is acidic; pH 2 is strongly acidic.&quot;,level:&quot;Intermediate&quot;}
+],
+&quot;Physics&quot;:[
+{topic:&quot;Measurement&quot;,q:&quot;What is the SI unit of force?&quot;,o:[&quot;Joule&quot;,&quot;Newton&quot;,&quot;Watt&quot;,&quot;Pascal&quot;],a:1,e:&quot;Force is measured in newtons (N).&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Electricity&quot;,q:&quot;In a simple series circuit, if the circuit is broken, current…&quot;,o:[&quot;Keeps flowing normally&quot;,&quot;Stops flowing&quot;,&quot;Doubles&quot;,&quot;Changes into mass&quot;],a:1,e:&quot;A broken circuit path prevents current from flowing.&quot;,level:&quot;Intermediate&quot;}
+],
+&quot;Social Studies&quot;:[
+{topic:&quot;Maps and direction&quot;,q:&quot;What is a map mainly used for?&quot;,o:[&quot;Finding and representing places&quot;,&quot;Cooking food&quot;,&quot;Measuring temperature&quot;,&quot;Growing taller&quot;],a:0,e:&quot;Maps represent places and help locate features.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Kenya and citizenship&quot;,q:&quot;Which is a national symbol of Kenya?&quot;,o:[&quot;The national flag&quot;,&quot;A school bag&quot;,&quot;A football&quot;,&quot;A pencil&quot;],a:0,e:&quot;Kenya&#x27;s national flag is a national symbol.&quot;,level:&quot;Beginner&quot;}
+],
+&quot;Agriculture&quot;:[
+{topic:&quot;Plant growth&quot;,q:&quot;Which plant part commonly absorbs water from soil?&quot;,o:[&quot;Leaf&quot;,&quot;Root&quot;,&quot;Flower&quot;,&quot;Fruit&quot;],a:1,e:&quot;Roots absorb water and help anchor the plant.&quot;,level:&quot;Beginner&quot;},
+{topic:&quot;Crop production&quot;,q:&quot;Why do farmers remove weeds from crop fields?&quot;,o:[&quot;To reduce competition for resources&quot;,&quot;To make crops thirsty&quot;,&quot;To stop all plant growth&quot;,&quot;To increase pests&quot;],a:0,e:&quot;Weeds compete with crops for water, light, space and nutrients.&quot;,level:&quot;Intermediate&quot;}
+]
+};
+let questions=[],idx=0,answers=[],locked=false,timer=null,secondsLeft=0,currentMeta={};
+function fillSelect(el,items,selected){el.innerHTML=&quot;&quot;;items.forEach(v=&gt;{let o=document.createElement(&quot;option&quot;);o.value=v;o.textContent=v;el.appendChild(o)});if(selected&amp;&amp;items.includes(selected))el.value=selected;}
+function refreshSubjects(){
+ const g=$(&quot;grade&quot;).value, p=$(&quot;pathway&quot;).value;
+ $(&quot;pathwayWrap&quot;).hidden=!([&quot;Grade 10&quot;,&quot;Grade 11&quot;,&quot;Grade 12&quot;].includes(g));
+ let list=subjectMap[g]||subjectMap[&quot;Grade 7&quot;];
+ if([&quot;Grade 10&quot;,&quot;Grade 11&quot;,&quot;Grade 12&quot;].includes(g)) list=pathwaySubjects[p]||list;
+ fillSelect($(&quot;subject&quot;),list);refreshTopics();
+}
+function refreshTopics(){let s=$(&quot;subject&quot;).value;fillSelect($(&quot;topic&quot;),[&quot;all&quot;,...(topics[s]||[&quot;Core concepts&quot;,&quot;Applications&quot;,&quot;Revision&quot;])].map(x=&gt;x===&quot;all&quot;?&quot;Mixed topics / whole subject&quot;:x));$(&quot;topic&quot;).options[0].value=&quot;all&quot;;}
+function updateTopicOptions(){refreshTopics();}
+$(&quot;grade&quot;).addEventListener(&quot;change&quot;,refreshSubjects);$(&quot;pathway&quot;).addEventListener(&quot;change&quot;,refreshSubjects);$(&quot;subject&quot;).addEventListener(&quot;change&quot;,refreshTopics);
+refreshSubjects();
+
+function getQuestionPool(){
+ const subj=$(&quot;subject&quot;).value, chosenTopic=$(&quot;topic&quot;).value, grade=$(&quot;grade&quot;).value, diff=$(&quot;difficulty&quot;).value, mode=$(&quot;mode&quot;).value;
+ let pool=(bank[subj]||[]).map(q=&gt;({...q,subject:subj,grade}));
+ if(chosenTopic!==&quot;all&quot;)pool=pool.filter(q=&gt;q.topic===chosenTopic);
+ if(diff!==&quot;Intermediate&quot;)pool=pool.filter(q=&gt;q.level===diff);
+ if(mode===&quot;generated&quot;){
+   // Local template variations only; no AI connection.
+   const base=(bank[subj]||[]);
+   let source=base.filter(q=&gt;chosenTopic===&quot;all&quot;||q.topic===chosenTopic);
+   if(!source.length) source=base;
+   pool=source.map((q,i)=&gt;({...q,q:q.q+&quot; (Practice variation &quot;+(i+1)+&quot;)&quot;,subject:subj,grade,generated:true}));
+ }
+ if(!pool.length){
+   const safeFallback=[
+    {topic:chosenTopic===&quot;all&quot;?&quot;Core concepts&quot;:chosenTopic,q:`Which approach is most useful when revising ${chosenTopic===&quot;all&quot;?subj:chosenTopic}?`,o:[&quot;Review key ideas and practise examples&quot;,&quot;Skip the topic completely&quot;,&quot;Memorise without understanding&quot;,&quot;Avoid checking answers&quot;],a:0,e:&quot;Active revision combines understanding, worked examples and checking answers.&quot;,level:diff,subject:subj,grade},
+    {topic:chosenTopic===&quot;all&quot;?&quot;Applications&quot;:chosenTopic,q:`Why should a learner practise ${chosenTopic===&quot;all&quot;?subj:chosenTopic}?`,o:[&quot;To identify understanding and gaps&quot;,&quot;Only to finish quickly&quot;,&quot;To avoid learning concepts&quot;,&quot;To replace all lessons&quot;],a:0,e:&quot;Practice helps learners identify strengths and what needs further study.&quot;,level:diff,subject:subj,grade}
+   ];
+   pool=safeFallback;
+ }
+ return pool;
+}
+function shuffle(arr){return arr.map(x=&gt;({x,r:Math.random()})).sort((a,b)=&gt;a.r-b.r).map(z=&gt;z.x)}
+function startExam(){
+ clearInterval(timer);const pool=getQuestionPool();const n=Number($(&quot;count&quot;).value);
+ questions=shuffle(pool).slice(0,n);
+ while(questions.length&lt;n){questions.push({...pool[questions.length%pool.length]});}
+ idx=0;answers=Array(questions.length).fill(null);locked=false;
+ currentMeta={grade:$(&quot;grade&quot;).value,pathway:$(&quot;pathwayWrap&quot;).hidden?&quot;&quot;:$(&quot;pathway&quot;).value,subject:$(&quot;subject&quot;).value,topic:$(&quot;topic&quot;).value,mode:$(&quot;mode&quot;).value,difficulty:$(&quot;difficulty&quot;).value};
+ $(&quot;setup&quot;).hidden=true;$(&quot;results&quot;).hidden=true;$(&quot;exam&quot;).hidden=false;
+ $(&quot;examLabel&quot;).textContent=`${currentMeta.grade} • ${currentMeta.subject} • ${currentMeta.difficulty}`;
+ secondsLeft=Number($(&quot;timed&quot;).value)*60;updateTimer();
+ if(secondsLeft&gt;0)timer=setInterval(()=&gt;{secondsLeft--;updateTimer();if(secondsLeft&lt;=0){clearInterval(timer);finishExam(true)}},1000);
+ renderQuestion();$(&quot;exam&quot;).scrollIntoView({behavior:&quot;smooth&quot;,block:&quot;start&quot;});
+}
+function updateTimer(){ $(&quot;timerText&quot;).textContent=secondsLeft&gt;0?`Time remaining: ${Math.floor(secondsLeft/60)}:${String(secondsLeft%60).padStart(2,&quot;0&quot;)}`:($(&quot;timed&quot;).value===&quot;0&quot;?&quot;No time limit&quot;:&quot;Time is up&quot;);}
+function renderQuestion(){
+ locked=false;const q=questions[idx];$(&quot;counter&quot;).textContent=`Question ${idx+1} of ${questions.length}`;$(&quot;scoreLive&quot;).textContent=`Answered: ${answers.filter(a=&gt;a!==null).length}`;$(&quot;bar&quot;).style.width=`${idx/questions.length*100}%`;
+ $(&quot;questionText&quot;).textContent=`${q.topic}: ${q.q}`;$(&quot;options&quot;).innerHTML=&quot;&quot;;
+ q.o.forEach((txt,i)=&gt;{let label=document.createElement(&quot;label&quot;);label.className=&quot;option&quot;;let input=document.createElement(&quot;input&quot;);input.type=&quot;radio&quot;;input.name=&quot;ans&quot;;input.value=i;let span=document.createElement(&quot;span&quot;);span.textContent=String.fromCharCode(65+i)+&quot;. &quot;+txt;label.append(input,span);$(&quot;options&quot;).append(label);});
+ $(&quot;feedback&quot;).hidden=true;$(&quot;checkBtn&quot;).hidden=false;$(&quot;nextBtn&quot;).hidden=true;
+}
+function checkAnswer(){
+ const selected=document.querySelector(&#x27;input[name=&quot;ans&quot;]:checked&#x27;);if(!selected){$(&quot;feedback&quot;).hidden=false;$(&quot;feedback&quot;).className=&quot;notice&quot;;$(&quot;feedback&quot;).textContent=&quot;Choose an answer before checking.&quot;;return;}
+ answers[idx]=Number(selected.value);locked=true;
+ document.querySelectorAll(&#x27;input[name=&quot;ans&quot;]&#x27;).forEach(x=&gt;x.disabled=true);
+ const q=questions[idx],correct=answers[idx]===q.a;
+ $(&quot;feedback&quot;).hidden=false;$(&quot;feedback&quot;).className=correct?&quot;notice good&quot;:&quot;notice&quot;;$(&quot;feedback&quot;).textContent=(correct?&quot;Correct. &quot;:&quot;Not quite. &quot;)+(($(&quot;feedbackMode&quot;).value===&quot;after&quot;)?q.e:&quot;Your answer has been recorded. Explanation will appear in the final report.&quot;);
+ $(&quot;checkBtn&quot;).hidden=true;$(&quot;nextBtn&quot;).hidden=false;$(&quot;nextBtn&quot;).textContent=idx===questions.length-1?&quot;Finish and see results&quot;:&quot;Next question&quot;;
+ $(&quot;scoreLive&quot;).textContent=`Answered: ${answers.filter(a=&gt;a!==null).length}`;$(&quot;bar&quot;).style.width=`${(idx+1)/questions.length*100}%`;
+}
+function nextQuestion(){if(!locked){const selected=document.querySelector(&#x27;input[name=&quot;ans&quot;]:checked&#x27;);if(selected)answers[idx]=Number(selected.value);}
+ if(idx&lt;questions.length-1){idx++;renderQuestion()}else finishExam(false);}
+function finishExam(timeUp){
+ clearInterval(timer);
+ const correct=questions.reduce((sum,q,i)=&gt;sum+(answers[i]===q.a?1:0),0),pct=Math.round(correct/questions.length*100);
+ $(&quot;exam&quot;).hidden=true;$(&quot;results&quot;).hidden=false;
+ $(&quot;finalLine&quot;).textContent=`${correct} / ${questions.length} correct — ${pct}%${timeUp?&quot; (time ended)&quot;:&quot;&quot;}`;
+ $(&quot;statCorrect&quot;).textContent=correct;$(&quot;statWrong&quot;).textContent=questions.length-correct;$(&quot;statPct&quot;).textContent=pct+&quot;%&quot;;
+ const topicStats={};questions.forEach((q,i)=&gt;{topicStats[q.topic]??={total:0,correct:0};topicStats[q.topic].total++;if(answers[i]===q.a)topicStats[q.topic].correct++;});
+ let weakest=Object.entries(topicStats).sort((a,b)=&gt;(a[1].correct/a[1].total)-(b[1].correct/b[1].total));
+ $(&quot;advice&quot;).textContent=pct&gt;=80?&quot;Strong result. Try a more advanced test or explain the concepts in your own words.&quot;:`Revise ${weakest.slice(0,2).map(([t])=&gt;t).join(&quot; and &quot;)} first, read the explanations, then try another test.`;
+ $(&quot;review&quot;).innerHTML=&quot;&quot;;
+ questions.forEach((q,i)=&gt;{let div=document.createElement(&quot;div&quot;);div.className=&quot;panel&quot;;div.style.boxShadow=&quot;none&quot;;div.style.border=&quot;1px solid var(--line)&quot;;let your=answers[i]===null?&quot;Not answered&quot;:q.o[answers[i]];div.innerHTML=`&lt;strong&gt;${i+1}. ${escapeHTML(q.q)}&lt;/strong&gt;&lt;p class=&quot;muted&quot;&gt;Topic: ${escapeHTML(q.topic)}&lt;/p&gt;&lt;p class=&quot;muted&quot;&gt;Your answer: ${escapeHTML(your)}&lt;/p&gt;&lt;p class=&quot;muted&quot;&gt;Correct answer: ${escapeHTML(q.o[q.a])}&lt;/p&gt;&lt;p class=&quot;muted&quot;&gt;${escapeHTML(q.e)}&lt;/p&gt;&lt;span class=&quot;pill&quot;&gt;${answers[i]===q.a?&quot;Correct&quot;:&quot;Review this&quot;}&lt;/span&gt;`;$(&quot;review&quot;).appendChild(div);});
+ const result={...currentMeta,correct,total:questions.length,pct,date:new Date().toISOString(),topicStats};
+ try{let h=JSON.parse(localStorage.getItem(&quot;elimusmart_exam_history&quot;)||&quot;[]&quot;);h.unshift(result);localStorage.setItem(&quot;elimusmart_exam_history&quot;,JSON.stringify(h.slice(0,10)));}catch(e){}
+ renderHistory();$(&quot;results&quot;).scrollIntoView({behavior:&quot;smooth&quot;,block:&quot;start&quot;});
+}
+function escapeHTML(s){return String(s).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g,c=&gt;({&quot;&amp;&quot;:&quot;&amp;amp;&quot;,&quot;&lt;&quot;:&quot;&amp;lt;&quot;,&quot;&gt;&quot;:&quot;&amp;gt;&quot;,&#x27;&quot;&#x27;:&quot;&amp;quot;&quot;,&quot;&#x27;&quot;:&quot;&amp;#39;&quot;}[c]));}
+function renderHistory(){let h=[];try{h=JSON.parse(localStorage.getItem(&quot;elimusmart_exam_history&quot;)||&quot;[]&quot;)}catch(e){};const box=$(&quot;historyList&quot;);box.innerHTML=&quot;&quot;;if(!h.length){box.textContent=&quot;Complete a test to see results here.&quot;;return;}h.forEach(r=&gt;{let p=document.createElement(&quot;p&quot;);p.textContent=`${new Date(r.date).toLocaleDateString()} — ${r.grade}${r.pathway?&quot; / &quot;+r.pathway:&quot;&quot;} • ${r.subject} • ${r.correct}/${r.total} (${r.pct}%)`;box.appendChild(p);});}
+function resetToSetup(){clearInterval(timer);$(&quot;exam&quot;).hidden=true;$(&quot;results&quot;).hidden=true;$(&quot;setup&quot;).hidden=false;$(&quot;setup&quot;).scrollIntoView({behavior:&quot;smooth&quot;});}
+$(&quot;startBtn&quot;).addEventListener(&quot;click&quot;,startExam);$(&quot;checkBtn&quot;).addEventListener(&quot;click&quot;,checkAnswer);$(&quot;nextBtn&quot;).addEventListener(&quot;click&quot;,nextQuestion);
+$(&quot;submitBtn&quot;).addEventListener(&quot;click&quot;,()=&gt;{if(confirm(&quot;Submit your examination now?&quot;))finishExam(false)});$(&quot;exitBtn&quot;).addEventListener(&quot;click&quot;,resetToSetup);
+$(&quot;retryBtn&quot;).addEventListener(&quot;click&quot;,startExam);$(&quot;setupBtn&quot;).addEventListener(&quot;click&quot;,resetToSetup);
+$(&quot;clearHistory&quot;).addEventListener(&quot;click&quot;,()=&gt;{if(confirm(&quot;Clear practice results saved on this device?&quot;)){localStorage.removeItem(&quot;elimusmart_exam_history&quot;);renderHistory();}});
+renderHistory();
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></section>
+<section class="panel view" id="teacher"><h2>👩‍🏫 Teacher Studio</h2>
+<p class="muted">Create editable drafts for a chosen grade, subject, topic and question style. Teachers should review all questions, answers, marks and curriculum alignment before use.</p>
+<div class="row"><div><label for="grade">Grade</label><select id="grade"><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option></select></div>
+<div id="pathWrap" hidden><label for="path">Senior school pathway</label><select id="path"><option>STEM</option><option>Social Sciences</option><option>Arts and Sports Science</option></select></div>
+<div><label for="subject">Subject</label><select id="subject"></select></div><div><label for="topic">Topic</label><select id="topic"></select></div>
+<div><label for="docType">Document</label><select id="docType"><option value="exam">Examination paper</option><option value="marking">Marking scheme / model answers</option><option value="scheme">Scheme of work</option></select></div>
+<div><label for="format">Question format</label><select id="format"><option value="mixed">Mixed: objective and written</option><option value="mcq">Multiple choice</option><option value="short">Short-answer (no options)</option><option value="structured">Structured / multi-part</option><option value="essay">Essay / extended response</option></select></div>
+<div><label for="count">Number of questions / planning rows</label><select id="count"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></div>
+<div><label for="marks">Suggested marks per question</label><select id="marks"><option>1</option><option selected>2</option><option>5</option><option>10</option></select></div></div>
+<label for="notes">Learning outcomes or teacher instructions (optional)</label><textarea id="notes" rows="3" placeholder="e.g. assess explanation, calculation and application"></textarea>
+<button id="generate">Generate editable draft</button><button id="download" disabled>Download TXT</button><button id="downloadWord" disabled>Download Word-compatible file</button><button id="printDraft" disabled>Print / Save as PDF</button>
+<div id="teacherOutput">Your generated draft will appear here.</div>
+<div class="notice" style="margin-top:12px">This is a template-based prototype, not an AI service. The sample question bank is limited and not officially verified as complete CBE coverage. For real school use, verify against the current KICD curriculum design.</div>
+</section>
+<section class="panel view" id="roadmap"><h2>Planned learning features</h2><div class="tiles">
+<div class="panel">🎥 <b>Video classes</b><p class="muted">Topic-linked video lessons and notes.</p></div><div class="panel">🧪 <b>Experiments</b><p class="muted">Guided practical activities with safety advice.</p></div><div class="panel">📚 <b>Subject topics</b><p class="muted">A verified topic map for every grade and subject.</p></div><div class="panel">💬 <b>Ask & Answer</b><p class="muted">Connect learners to teacher support or a secure AI service.</p></div><div class="panel">💳 <b>Premium features</b><p class="muted">Secure accounts and M-Pesa integration are future backend work.</p></div></div></section>
+</main>
+<script>
+const subjects={
+"Grade 1":["Mathematics","English","Kiswahili","Environmental Activities"],"Grade 2":["Mathematics","English","Kiswahili","Environmental Activities"],"Grade 3":["Mathematics","English","Kiswahili","Environmental Activities"],
+"Grade 4":["Mathematics","English","Kiswahili","Science and Technology","Social Studies","Agriculture"],"Grade 5":["Mathematics","English","Kiswahili","Science and Technology","Social Studies","Agriculture"],"Grade 6":["Mathematics","English","Kiswahili","Science and Technology","Social Studies","Agriculture"],
+"Grade 7":["Mathematics","English","Kiswahili","Integrated Science","Social Studies","Creative Arts","Agriculture","Religious Education"],"Grade 8":["Mathematics","English","Kiswahili","Integrated Science","Social Studies","Creative Arts","Agriculture","Religious Education"],"Grade 9":["Mathematics","English","Kiswahili","Integrated Science","Social Studies","Creative Arts","Agriculture","Religious Education"],
+"Grade 10":["Mathematics","Biology","Chemistry","Physics","Computer Studies","Business Studies","Geography","History and Citizenship","English","Kiswahili","Fine Arts","Music and Dance","Sports and Recreation"],"Grade 11":["Mathematics","Biology","Chemistry","Physics","Computer Studies","Business Studies","Geography","History and Citizenship","English","Kiswahili","Fine Arts","Music and Dance","Sports and Recreation"],"Grade 12":["Mathematics","Biology","Chemistry","Physics","Computer Studies","Business Studies","Geography","History and Citizenship","English","Kiswahili","Fine Arts","Music and Dance","Sports and Recreation"]};
+const pathways={"STEM":["Mathematics","Biology","Chemistry","Physics","Computer Studies"],"Social Sciences":["English","Kiswahili","Business Studies","Geography","History and Citizenship"],"Arts and Sports Science":["English","Kiswahili","Fine Arts","Music and Dance","Sports and Recreation"]};
+const topicMap={"Mathematics":["Number operations","Fractions","Decimals","Algebra","Geometry","Measurement","Ratio and proportion","Statistics","Functions","Quadratic equations","Differentiation"],"English":["Grammar","Vocabulary","Reading comprehension","Writing","Punctuation","Literature"],"Kiswahili":["Sarufi","Msamiati","Ufahamu","Insha","Fasihi"],"Biology":["Cells","Nutrition","Transport","Ecology","Reproduction"],"Chemistry":["Matter","Elements and compounds","Acids and bases","Chemical reactions"],"Physics":["Measurement","Forces","Energy","Electricity","Waves"],"Integrated Science":["Plants","Matter","Forces and energy","Environment","Health and hygiene"],"Science and Technology":["Plants","Matter","Forces and energy","Environment"],"Social Studies":["Maps and direction","Kenya and citizenship","Environment","History"],"Agriculture":["Plant growth","Soil","Crop production","Livestock"],"Computer Studies":["Computer systems","Data","Algorithms","Digital safety"],"Business Studies":["Entrepreneurship","Business transactions","Markets","Record keeping"],"Geography":["Maps","Weather and climate","Landforms","Population"],"History and Citizenship":["Citizenship","Governance","Historical sources","National identity"],"Fine Arts":["Elements of art","Drawing","Colour","Composition"],"Music and Dance":["Rhythm","Melody","Performance","Dance"],"Sports and Recreation":["Fitness","Skills","Safety","Teamwork"],"Creative Arts":["Drawing","Colour","Composition"],"Religious Education":["Values","Worship","Relationships"],"Environmental Activities":["Weather","Plants and animals","Clean environment"]};
+const bank={
+"Mathematics":[["Fractions","Calculate 1/2 + 1/4.","3/4","Convert 1/2 to 2/4, then add."],["Number operations","Calculate 7 + 5.","12","7 + 5 = 12."],["Algebra","Solve 2x + 3 = 11.","x = 4","Subtract 3 and divide by 2."],["Quadratic equations","Solve x² − 5x + 6 = 0.","x = 2 or x = 3","Factor into (x − 2)(x − 3) = 0."]],
+"English":[["Grammar","Identify the noun in: 'Honesty is important.'","Honesty","A noun can name an idea."],["Punctuation","Which punctuation mark ends a direct question?","Question mark (?)","Direct questions normally end with a question mark."],["Vocabulary","Give an antonym for 'scarce'.","Plentiful","Plentiful means available in large amounts."]],
+"Kiswahili":[["Sarufi","Andika wingi wa neno 'mtoto'.","Watoto","Wingi wa mtoto ni watoto."],["Sarufi","Taja kinyume cha neno 'refu'.","Fupi","Kinyume cha refu ni fupi."]],
+"Integrated Science":[["Plants","Which plant part absorbs most water from soil?","Root","Roots absorb water and mineral salts."],["Matter","Name the state of matter with a fixed shape.","Solid","Solids generally have a fixed shape."],["Health and hygiene","State one habit that helps prevent the spread of germs.","Wash hands with soap","Handwashing helps remove germs."]],
+"Biology":[["Cells","Name the cell structure that contains genetic material.","Nucleus","The nucleus contains most genetic material in typical plant and animal cells."],["Ecology","What is photosynthesis?","Plants use light to make food from carbon dioxide and water","Photosynthesis uses light energy to make sugars."]],
+"Chemistry":[["Matter","Name one chemical element.","Sodium (example)","An element contains one type of atom."],["Acids and bases","A solution has pH 2. Is it acidic or alkaline?","Acidic","A pH below 7 is acidic."]],
+"Physics":[["Measurement","What is the SI unit of force?","Newton (N)","Force is measured in newtons."]],
+"Social Studies":[["Maps and direction","State one use of a map.","To locate or represent places","Maps represent places and features."]],
+"Agriculture":[["Plant growth","Name the plant part that commonly absorbs water from soil.","Root","Roots absorb water and help anchor plants."]]};
+const $=id=>document.getElementById(id);
+function fill(id,arr){const e=$(id);e.innerHTML="";arr.forEach(v=>{let o=document.createElement("option");o.value=v;o.textContent=v;e.appendChild(o)})}
+function refresh(){let g=$("grade").value,p=$("path").value;$("pathWrap").hidden=!["Grade 10","Grade 11","Grade 12"].includes(g);fill("subject",["Grade 10","Grade 11","Grade 12"].includes(g)?pathways[p]:subjects[g]);refreshTopics()}
+function refreshTopics(){let s=$("subject").value;fill("topic",["Mixed topics / whole subject",...(topicMap[s]||["Core concepts","Applications","Revision"])]);}
+$("grade").addEventListener("change",refresh);$("path").addEventListener("change",refresh);$("subject").addEventListener("change",refreshTopics);refresh();
+let draft="";
+function generate(){
+ const g=$("grade").value,p=$("path").value,s=$("subject").value,t=$("topic").value,doc=$("docType").value,fmt=$("format").value,n=+$("count").value,m=+$("marks").value,notes=$("notes").value.trim();
+ let pool=(bank[s]||[]).filter(q=>t==="Mixed topics / whole subject"||q[0]===t);if(!pool.length)pool=[[t==="Mixed topics / whole subject"?"Core concepts":t,`Explain one important idea about ${t==="Mixed topics / whole subject"?s:t}.`,"A correct answer should define the concept, explain it accurately, and give a relevant example.","Use the current curriculum design and class notes to verify the expected response."]];
+ let out=["ELIMUSMART TEACHER STUDIO","========================","Grade: "+g];if(["Grade 10","Grade 11","Grade 12"].includes(g))out.push("Pathway: "+p);out.push("Subject: "+s,"Topic: "+t,"Document: "+({"exam":"Examination paper","marking":"Marking scheme / model answers","scheme":"Scheme of work"}[doc]),"");
+ if(notes)out.push("Teacher instructions / learning outcomes: "+notes,"");
+ if(doc==="scheme"){out.push("SCHEME OF WORK (EDITABLE TEMPLATE)","Week | Topic | Intended learning outcome | Learning experiences | Resources | Assessment");let ts=t==="Mixed topics / whole subject"?(topicMap[s]||["Introduction","Core concepts","Applications","Revision"]):[t];for(let i=0;i<n;i++){let x=ts[i%ts.length];out.push(`${i+1} | ${x} | Explain and apply key ideas | Discussion, worked examples and learner practice | Approved text, notes and suitable materials | Oral questions and short task`)}out.push("Adapt weeks and outcomes to the approved curriculum design and school timetable.");}
+ else if(doc==="marking"){out.push("MARKING SCHEME / MODEL ANSWERS");for(let i=0;i<n;i++){let q=pool[i%pool.length];out.push(`${i+1}. ${q[1]}`,`Expected answer: ${q[2]}`,`Explanation / guidance: ${q[3]}`,`Suggested marks: ${m}`,"")}}
+ else {out.push("Instructions: Answer all questions. Show working or explain your reasoning where appropriate.","");for(let i=0;i<n;i++){let q=pool[i%pool.length];out.push(`${i+1}. [${m} marks] (${q[0]})`);if(fmt==="mcq")out.push(q[1],"A. [Teacher to write option]","B. [Teacher to write option]","C. [Teacher to write option]","D. [Teacher to write option]");else if(fmt==="short")out.push(q[1]);else if(fmt==="structured")out.push(q[1],"a) Define or state the key concept.","b) Explain your reasoning or show working.","c) Give an application or example.");else if(fmt==="essay")out.push(`Discuss ${q[0].toLowerCase()} using relevant examples.`, "Organize your answer with an introduction, supporting points and conclusion.");else out.push(q[1],"Follow-up: Explain your reasoning or provide an example.");out.push("")}}
+ draft=out.join("\n");$("teacherOutput").textContent=draft;$("download").disabled=false;
+}
+$("generate").addEventListener("click",generate);
+$("download").addEventListener("click",()=>{if(!draft)return;let blob=new Blob([draft],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="elimusmart_teacher_draft.txt";a.click();URL.revokeObjectURL(url)});
+function enableExports(){["downloadWord","printDraft"].forEach(id=>$(id).disabled=false);}
+const originalGenerate=generate;
+generate=function(){originalGenerate();if(draft)enableExports();};
+$("downloadWord").addEventListener("click",()=>{if(!draft)return;const safe=draft.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n/g,"<br>");const doc='<!doctype html><html><head><meta charset="utf-8"><title>ElimuSmart Teacher Draft</title><style>body{font-family:Arial,sans-serif;line-height:1.5;margin:2cm}h1{font-size:18pt}</style></head><body><h1>ElimuSmart Teacher Studio</h1><p>'+safe+'</p></body></html>';const blob=new Blob([doc],{type:"application/msword;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="elimusmart_teacher_draft.doc";a.click();URL.revokeObjectURL(url);});
+$("printDraft").addEventListener("click",()=>{if(!draft)return;const w=window.open("","_blank");if(!w){alert("Allow pop-ups for this page, then try again.");return;}w.document.write('<!doctype html><html><head><title>ElimuSmart Draft</title><style>body{font-family:Arial,sans-serif;margin:2cm;line-height:1.5;white-space:pre-wrap}@media print{button{display:none}}</style></head><body><button onclick="window.print()">Print / Save as PDF</button><div>'+draft.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</div></body></html>');w.document.close();});
+document.querySelectorAll("button[data-view]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("button[data-view]").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".view").forEach(x=>x.classList.toggle("active",x.id===b.dataset.view));$(b.dataset.view).scrollIntoView({behavior:"smooth",block:"start"})}));
+</script></body></html>
